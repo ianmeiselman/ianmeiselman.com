@@ -610,27 +610,39 @@
       <h2 class="section-heading reveal">Let's<br><em>connect</em></h2>
       <p class="section-sub reveal delay-1">Open to conversations about commercial real estate, acquisitions, and professional opportunities in Florida.</p>
 
-      <form class="reveal delay-2" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div data-fs-success style="display:none;font-size:13px;color:var(--muted);margin-top:56px;">Message received — I'll be in touch.</div>
+      <div data-fs-error style="display:none;font-size:13px;color:rgba(220,100,100,0.8);margin-top:56px;"></div>
+
+      <form id="contact-form" class="reveal delay-2">
         <div class="field">
           <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="First and last" required>
+          <input type="text" id="name" name="name" placeholder="First and last" required data-fs-field>
+          <span data-fs-error="name" style="font-size:11px;color:rgba(220,100,100,0.8);"></span>
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required data-fs-field>
+          <span data-fs-error="email" style="font-size:11px;color:rgba(220,100,100,0.8);"></span>
         </div>
         <div class="field">
           <label for="company">Company / Affiliation</label>
-          <input type="text" id="company" name="company" placeholder="Where you work or study">
+          <input type="text" id="company" name="company" placeholder="Where you work or study" data-fs-field>
         </div>
         <div class="field">
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="What's on your mind?" rows="5" required></textarea>
+          <textarea id="message" name="message" placeholder="What's on your mind?" rows="5" required data-fs-field></textarea>
+          <span data-fs-error="message" style="font-size:11px;color:rgba(220,100,100,0.8);"></span>
         </div>
         <div class="submit-row">
-          <button type="submit">Send Message</button>
+          <button type="submit" data-fs-submit-btn>Send Message</button>
         </div>
       </form>
+
+      <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'mwvwnpwp' });
+      </script>
+      <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     </div>
   </section>
 
